@@ -50,6 +50,9 @@ return static function (Application $app, MiddlewareFactory $factory, ContainerI
     $app->any('/admin/addpost',[Mezzio\Session\SessionMiddleware::class,Mezzio\Authentication\AuthenticationMiddleware::class,
     Mezzio\Authorization\AuthorizationMiddleware::class,Admin\Handler\PostUploadHandler::class],'addpost');
     
+    $app->post('/admin/posts/delete/{id}',[Mezzio\Session\SessionMiddleware::class,Mezzio\Authentication\AuthenticationMiddleware::class,
+    Mezzio\Authorization\AuthorizationMiddleware::class,Admin\Handler\PostListHandler::class],'deletePost');
+
     
     
     
