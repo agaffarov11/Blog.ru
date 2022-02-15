@@ -84,6 +84,9 @@ class UserService implements UserRepositoryInterface {
         return array();
 
     }
+    public function deleteUserById() {
+        
+    }
 
 
 

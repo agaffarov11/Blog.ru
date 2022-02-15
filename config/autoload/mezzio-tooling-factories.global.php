@@ -14,6 +14,7 @@ return [
     'dependencies' => [
         'factories' => [
             Admin\Handler\DashboardHandler::class => Admin\Handler\DashboardHandlerFactory::class,
+            Admin\Handler\DeletePostHandler::class => Admin\Handler\DeletePostHandlerFactory::class,
             Admin\Handler\PostListHandler::class => Admin\Handler\PostListHandlerFactory::class,
             Admin\Handler\PostUploadHandler::class => Admin\Handler\PostUploadHandlerFactory::class,
             App\Handler\AccountHandler::class => App\Handler\AccountHandlerFactory::class,

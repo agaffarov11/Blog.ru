@@ -70,6 +70,13 @@ class PostService
         return $p->getId();
     }
     
+    public function deletePost($id) {
+        $thePost = $this->getPostById($id);
+        $this->orm->remove($thePost);
+        $this->orm->flush();
+
+
+    }
 
 
   
