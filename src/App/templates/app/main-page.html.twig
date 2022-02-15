@@ -1,0 +1,66 @@
+
+{% extends '@layout/main.html.twig' %}
+{% block news %}
+<div class="dropdown">
+    <button class="dropbtn">Category 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+
+      {% for cat in catList %}
+	    <a href="{{ "/?cat="~cat.name~}}">{{cat.name}}</a>
+     {% endfor %}
+      
+    </div>
+  </div> 
+
+{% endblock %}
+
+{% block body  %}
+<div class="row">
+  <div class="leftcolumn">
+  
+    {% for post in postList   %}
+
+	 <div class="card">
+      <a href="{{ path('postPage', { 'id': post.id  }) }}">{{ post.linkdesc }}</a>
+      <h5>{{ post.date }}</h5>
+      <div class="fakeimg" style="width:100%; "> 
+       
+        <img src="{{absolute_url(asset('/images/'~post.id~'.jpg', version=3)) }}" height="500px" width="900px" />     </div>
+      <p>{{ post.shortdesc }}</p>
+    </div>
+	 
+   {% endfor  %}
+
+  </div>
+  <div class="rightcolumn">
+    <div class="card">
+      <h2>About Me</h2>
+      <div class="fakeimg" style="height:100px;">Image</div>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+    </div>
+    <div class="card">
+      <h3>Popular Post</h3>
+      <div class="fakeimg">Image</div><br>
+      <div class="fakeimg">Image</div><br>
+      <div class="fakeimg">Image</div>
+    </div>
+    <div class="card">
+      <h3>Follow Me</h3>
+      <p>Some text..</p>
+    </div>
+  </div>
+ 
+</div>
+
+{% if  currentPage != 1  %}
+<a style='color:black;' href='{{ "/?page="~(currentPage-1)~}}'>prev</a>
+{%endif%}   
+
+{% if  currentPage*3 < postNum %}
+
+<a style='color:black;' href='{{ "/?page="~(currentPage+1)~"&cat="~(cat)~}}'>next</a>
+{%endif%}   
+
+{% endblock %}

@@ -1,0 +1,24 @@
+
+<form action="{{ path }}" method="post"  enctype="multipart/form-data">
+
+  <label>Link description</label><br>
+  <textarea name="linkdescription" cols="50" rows="5"></textarea><br />
+
+  <label>Short description</label><br>
+  <textarea name="shortdescription" cols="50" rows="5"></textarea><br />
+
+  <label>Main text</label><br>
+  <textarea name="main_text" cols="50" rows="5"></textarea><br />
+
+  <label>category</label><br>
+  <select name="cat">
+     {% for cat in cats %}
+         <option value="{{ cat.getId() }}">{{ cat.getName() }}</option> 
+     {% endfor %}
+	
+	    
+  </select><br>
+   <input type="file" name="postPic"><br>
+   <input type="submit" value="upload">
+
+</form>

@@ -1,0 +1,10 @@
+{% extends '@layout/main.html.twig' %}
+
+{% block body %}
+
+<p>this is your account</p>
+<label>your full name</label><br>
+<p style="color:yellow">{{ user.fname~"  "~user.lname }}</p>
+<a style="color:white" href="/logout">log out</a>
+
+{% endblock %}

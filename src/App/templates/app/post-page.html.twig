@@ -1,0 +1,26 @@
+{% extends '@layout/main.html.twig' %}
+
+{% block body %}
+  <img src="{{absolute_url(asset('/images/'~post.id~'.jpg', version=3)) }}" class="postimg" width="600" height="350" style="margin-left:auto;margin-right:auto;display:block"><br>
+  <p style="white-space:pre-wrap;color:yellow;">{{ post.main_text }}</p>
+
+{% if authenticated==true %}
+  <form method="post" action="{{ path }}">
+    <textarea name="comment_text" cols="50" rows="5"></textarea><br>
+	  
+	  <input type="submit" value="post comment">
+	
+
+  </form>
+  {% else %}
+    <p><a href="/login" style="color:green;">log in</a> or <a href="/register" style="color:green;">register</a> to add your comment</p>
+  {% endif %}
+
+  <h1>----------------comment section---------------</h1>
+
+  {% for c in comments %}
+     <p>{{ c.user.fname~' '~c.user.lname~' writes '~}}</p>
+     <h4 style="color:yellow">{{ c.comment_text }}</h4>
+  {% endfor %}
+	 
+{% endblock %}

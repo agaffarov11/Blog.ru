@@ -1,0 +1,32 @@
+{% extends '@layout/main.html.twig' %}
+
+{% block body %}
+
+{% if emailErr is defined %}
+{% if emailErr == false %}
+  <p style="color:yellow;">This email is already used</p>
+{% endif %}
+{% endif %}
+
+{% if errors is defined %}
+   {% for err in errors %}
+      <p style="color:yellow;">{{~err.getName()~ " input error" }}</p>
+      {% for e in err.getMessages() %}
+         <p>{{e}}</p>
+      {% endfor %}
+   {% endfor %}
+{% endif %}
+
+  <form method="post" action="/register">
+      <label>login</label>
+      <input type="text" name="login"><br>
+      <label>first name</label>
+      <input type="text" name="fname"><br>
+      <label>last name</label>
+      <input type="text" name="lname"><br>
+      <label>password</label>
+      <input type="password" name="password"><br>
+        
+     <input type="submit"value="register">
+  </form>
+{% endblock %}

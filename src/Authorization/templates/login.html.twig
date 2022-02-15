@@ -1,0 +1,16 @@
+{% extends '@layout/main.html.twig' %}
+
+{% block body %}
+   {% if error is defined %}
+     <p style="color:yellow"> {{error}} </p>
+   {% endif %} 
+
+
+   <form method="post" action="/login">
+       <label>login</label>
+      <input type="text" name="username"><br>
+      <label>password</label>
+      <input type="password" name="password"><br>
+      <input type="submit" value="login">
+   </form>
+{% endblock %}
