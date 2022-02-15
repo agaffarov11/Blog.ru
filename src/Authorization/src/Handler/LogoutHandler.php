@@ -43,8 +43,8 @@ class LogoutHandler implements RequestHandlerInterface
         
        */
 
-      var_dump($this->confArray['dependencies']);
-      exit;
+      
+      
          
         
 
