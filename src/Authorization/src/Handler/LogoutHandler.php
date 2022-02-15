@@ -33,7 +33,7 @@ class LogoutHandler implements RequestHandlerInterface
     public function handle(ServerRequestInterface $request) : ResponseInterface
     {
          
-        /**  
+        
         $session = $request->getAttribute('session');
 
         $session->unset(UserInterface::class);
@@ -41,7 +41,7 @@ class LogoutHandler implements RequestHandlerInterface
 
         return new RedirectResponse("/");
         
-       */
+       
 
       
       
